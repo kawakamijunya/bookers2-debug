@@ -35,9 +35,10 @@
              <%= @book.favorites.count %>
             <% end %>
           </td>
-          <td><P>コメント数<%= @book.book_comments.count %></td></p>
-          </tr>
           <% end %>
+          <td><p>コメント数<%= @book.book_comments.count %></p></td>
+          </tr>
+
           <% @book.book_comments.each do |book_comment| %>
           <tr>
             <td>
@@ -49,9 +50,9 @@
             <td>
               <%= book_comment.comment %>
             </td>
-          <% if @book.user == current_user %>
+          <% if book_comment.user == current_user %>
             <td>
-              <%= link_to 'Destroy',book_book_comment_path(book_comment.id), method: :delete, class: "btn btn-sm btn-danger" %>
+              <%= link_to 'Destroy',book_book_comment_path(@book,book_comment.id), method: :delete, class: "btn btn-sm btn-danger" %>
             </td>
           <% end %>
           </tr>
