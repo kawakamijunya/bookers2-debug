@@ -26,7 +26,9 @@ class User < ApplicationRecord
 
   #フォローした時の処理
   def follow(user_id)
-    relationships.create(followed_id: user_id)
+    unless self == user_id
+    self.relationships.find_or_create_by(followed_id: user_id.to_i, follower_id: self.id)
+    end
   end
 
   #フォローを外す時の処理
