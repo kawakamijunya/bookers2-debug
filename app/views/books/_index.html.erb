@@ -34,6 +34,8 @@
             </td>
           <% end %>
           <td><P>コメント数<%= book.book_comments.count %></td></p>
+          <td>フォロー数: <%= book.user.followings.count %></td>
+          <td>フォロワー数: <%= book.user.followers.count %></td>
       </tr>
     <% end %>
   </tbody>
