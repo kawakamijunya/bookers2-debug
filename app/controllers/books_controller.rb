@@ -12,7 +12,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @book = Book.new
-    @user = User.find(params[:user_id])
+    @user = User.find_by(params[:user_id])
   end
 
   def create
