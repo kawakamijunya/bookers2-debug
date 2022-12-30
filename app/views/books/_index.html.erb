@@ -36,15 +36,6 @@
           <td><P>コメント数<%= book.book_comments.count %></td></p>
           <td>フォロー数: <%= book.user.followings.count %></td>
           <td>フォロワー数: <%= book.user.followers.count %></td>
-          <td>
-          <% unless current_user == user %> <%#現在ログインしているユーザーのプロフィールは、フォロー、フォロー解除のボタンが出ないようにする。%>
-           <% if current_user.following?(user) %>
-            <%= link_to "フォロー外す", user_relationships_path(book.user_id), method: :delete %>
-           <% else %>
-            <%= link_to "フォローする", user_relationships_path(book.user_id), method: :post %>
-           <% end %>
-          <% end %>
-          </td>
       </tr>
     <% end %>
   </tbody>
