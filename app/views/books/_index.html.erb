@@ -17,7 +17,9 @@
         </td>
         <td><%= link_to book.title,book %></td>
         <td><%= book.body %></td>
-        <td><%= render "favorites/btn", book: book %></td>
+        <td id="favorite-btn<%= book.id %>">
+          <%= render "favorites/btn", book: book %>
+        </td>
         <td><P>コメント数<%= book.book_comments.count %></td></p>
         <td>フォロー数: <%= book.user.followings.count %></td>
         <td>フォロワー数: <%= book.user.followers.count %></td>

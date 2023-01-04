@@ -1,6 +1,6 @@
 <table>
-  <tbody>
-   <% book.book_comments.each do |book_comment| %>
+   <tbody>
+     <% book.book_comments.each do |book_comment| %>
           <tr>
             <td>
              <%= link_to user_path(book_comment.user) do %>
@@ -17,6 +17,6 @@
             </td>
              <% end %>
           </tr>
-   <% end %>
-  </tbody>
+     <% end %>
+   </tbody>
 </table>
