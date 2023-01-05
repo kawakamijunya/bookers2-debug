@@ -19,6 +19,12 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followers', as: 'followers'
   end
 
+  resources :chats, only: [:show, :create]
+  #・chats#show：チャットをやり取りするビューを返す
+  #・chats#create：入力されたメッセージをデータベースに保存する
+
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end
