@@ -11,7 +11,12 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    to = Time.current.at_end_of_day #Time.current は現在日時を取得,at_end_of_day は1日の終わりを23:59に設定
+    from = (to - 6.day).at_beginning_of_day #at_beginning_of_day は1日の始まりの時刻を0:00に設定
+    @books = Book.includes(:favorites).
+     sort_by {|x| #sort_byメソッドを使っていいね数を少ない順に取り出している
+      x.favorites.where(created_at: from...to).size
+     }.reverse #このままだと少ない順に表示されてしまうので最後にreverse
     @book = Book.new
     @user = User.find_by(params[:user_id])
   end
