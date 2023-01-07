@@ -40,4 +40,9 @@
    <% end %>
 
   <% end %>
+
+  <% if current_user != user %>
+    <%= link_to 'Chat', chat_path(user.id), class: "btn btn-success mx-auto" %>
+  <% end %>
+
 </div>
