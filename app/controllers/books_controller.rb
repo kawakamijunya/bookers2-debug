@@ -8,6 +8,13 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @user = @book.user
     @book_comment = BookComment.new
+    @view_counts = ViewCount.find_by(ip: request.remote_ip)
+     if @view_counts
+       @books = Book.all
+     else
+       @books = Book.all
+       ViewCount.create(ip: request.remote_ip)
+     end
   end
 
   def index

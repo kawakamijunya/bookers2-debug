@@ -27,6 +27,7 @@
           <td><p>コメント数<%= @book.book_comments.count %></p></td>
           <td>フォロー数: <%= @user.followings.count %></td>
         　<td>フォロワー数: <%= @user.followers.count %></td>
+        　<td>閲覧数: <%= ViewCount.count %></td>
           </tr>
       </table>
       <div id="comments-index"><%= render "book_comments/index", book: @book %></div>
